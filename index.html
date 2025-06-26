@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia das Crianças Smartmita - Garrafas Divertidas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Baloo 2', cursive;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            animation: bounce 2s infinite;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: bold;
+            font-size: 18px;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            bottom: -5px;
+            left: 0;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-family: 'Baloo 2', cursive;
+            font-size: 16px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 107, 107, 0.4);
+            background-color: #ff5252;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        
+        /* Banner Principal */
+        .hero {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 180px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.2;
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .countdown-item {
+            margin: 10px;
+            text-align: center;
+        }
+        
+        .countdown-number {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: bold;
+            background: white;
+            color: var(--primary);
+            width: clamp(60px, 10vw, 80px);
+            height: clamp(60px, 10vw, 80px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            box-shadow: var(--shadow);
+        }
+        
+        .countdown-label {
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            text-transform: uppercase;
+            opacity: 0.8;
+            font-weight: bold;
+        }
+        
+        /* Seção Garrafas */
+        .bottles-section {
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-family: 'Fredoka One', cursive;
+            color: var(--primary);
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            margin: 40px 0;
+            padding: 20px 0;
+            scrollbar-width: none;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .bottle-card {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+            width: 300px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bottle-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .bottle-card .bottle-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            animation: pulse 2s infinite;
+        }
+        
+        .bottle-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        .bottle-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .bottle-card h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .bottle-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .bottle-card .bottle-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        
+        .feature {
+            padding: 30px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            background: rgba(78, 205, 196, 0.1);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        
+        .feature h3 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        /* Seção Jogos */
+        .games-section {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            padding: 80px 20px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .games-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .game-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .game-card:hover {
+            transform: scale(1.05);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .game-card i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.2);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            text-align: center;
+        }
+        
+        .game-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        /* Seção Promoção */
+        .promo-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .promo-section::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+        
+        .promo-section::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+        }
+        
+        .promo-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .promo-container h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .promo-container p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .form-group input, .form-group select { /* Adicionado select */
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: 'Baloo 2', cursive;
+        }
+        
+        .form-group input:focus, .form-group select:focus { /* Adicionado select */
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+            background-color: #ff5252;
+        }
+        
+        /* Rodapé */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 20px 20px;
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-section h3::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--primary);
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+        
+        .footer-section ul li i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .certificates {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 15px;
+        }
+        
+        .certificate {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certificate img {
+            height: 40px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Mascote */
+        .mascot {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 100px;
+            height: 100px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjRkZCNjY2IiBkPSJNMjU2IDQ4QzE0MS4xIDQ4IDQ4IDE0MS4xIDQ4IDI1NnM5My4xIDIwOCAyMDggMjA4IDIwOC05My4xIDIwOC0yMDhTMzcwLjkgNDggMjU2IDQ4em0wIDM4NGMtOTcuMiAwLTE3Ni03OC44LTE3Ni0xNzZTMTU4LjggODAgMjU2IDgwc2E3Ni43IDc2LjcgMCAwIDEgNDYuNyAxNS44bC0xMTIgMTEyYTI0IDI0IDAgMSAwIDMzLjkgMzMuOWwxMTItMTExLjlBNzYuNSA3Ni41IDAgMCAxIDMzNiAyNTZjMCA5Ny4yLTc4LjggMTc2LTE3NiAxNzZ6Ii8+PGNpcmNsZSBmaWxsPSIjRkZFRTY1IiBjeD0iMjU2IiBjeT0iMjU2IiByPSI5NiIvPjxjaXJjbGUgZmlsbD0iIzRFQ0RDNSIgY3g9IjI1NiIgY3k9IjI1NiIgcj0iNjQiLz48Y2lyY2xlIGZpbGw9IiNGRkU3NkQiIGN4PSIyMTYiIGN5PSIxNzYiIHI9IjE2Ii8+PGNpcmNsZSBmaWxsPSIjRkZFNzZEIiBjeD0iMjk2IiBjeT0iMTc2IiByPSIxNiIvPjxwYXRoIGZpbGw9IiNGRkU3NkQiIGQ9Ik0yMjQgMjI0YzAgMTcuNy0xNC4zIDMyLTMyIDMycy0zMi0xNC4zLTMyLTMyaDY0em05NiAwYzAgMTcuNy0xNC4zIDMyLTMyIDMycy0zMi0xNC4zLTMyLTMyaDY0eiIvPjwvc3ZnPg==') no-repeat center/contain;
+            cursor: pointer;
+            z-index: 90;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2));
+            transition: var(--transition);
+        }
+        
+        .mascot:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        .mascot.talking {
+            animation: talk 0.5s infinite alternate;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        /* Quiz */
+        .quiz-container {
+            text-align: center;
+        }
+        
+        .quiz-question {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .quiz-option {
+            padding: 12px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .quiz-option:hover {
+            background: #eee;
+        }
+        
+        .quiz-option.selected {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .quiz-progress {
+            height: 5px;
+            background: #eee;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .quiz-progress-bar {
+            height: 100%;
+            background: var(--primary);
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        /* Mini-jogo */
+        .game-canvas-container {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #87CEEB, #E0F7FA);
+        }
+        
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        .game-controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Designer */
+        .designer-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .designer-preview {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            background: #f5f5f5;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .designer-bottle {
+            width: 100px;
+            height: 160px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bottle-color, #4ECDC4);
+            border-radius: 20px 20px 5px 5px;
+            border: 3px solid rgba(0,0,0,0.1);
+        }
+        
+        .designer-bottle::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 20px;
+            background: inherit;
+            border-radius: 10px 10px 0 0;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-bottom: none;
+        }
+        
+        .designer-sticker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--sticker-color, #FF6B6B);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; /* Para centralizar o conteúdo do adesivo */
+            align-items: center;
+            justify-content: center;
+            font-size: 20px; /* Tamanho do ícone/texto */
+            color: white;
+            text-align: center;
+        }
+        
+        .designer-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        .designer-control-group {
+            margin-bottom: 15px;
+        }
+        
+        .designer-control-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .designer-control-group input {
+            width: 100%;
+        }
+        
+        .color-picker {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .color-option.selected {
+            border-color: var(--dark);
+            transform: scale(1.1);
+        }
+        
+        /* Animações */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes talk {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-5px) scale(1.05); }
+        }
+        
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsivo */
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 99;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .mascot {
+                width: 70px;
+                height: 70px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="header-container">
+            <div class="logo">
+                <img src="smartmita.jpeg" alt="Logotipo Smartmita: um copo estilizado com um sorriso e folhas, representando hidratação e diversão.">
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#bottles">Garrafas Kids</a></li>
+                    <li><a href="#games">Divirta-se</a></li>
+                    <li><a href="#promo">Promoções</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="cta-button" id="win-button">Ganhe a Sua!</button>
+            <div class="hamburger" id="hamburger">☰</div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Dia das Crianças com Smartmita!</h1>
+            <p>Garrafas incríveis dos seus personagens favoritos para você se divertir e se hidratar!</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Dias</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Horas</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutos</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Segundos</div>
+                </div>
+            </div>
+            
+            <button class="cta-button" style="padding: 15px 30px; font-size: 1.2rem;">Conheça Nossas Garrafas</button>
+        </div>
+    </section>
+
+    <section class="bottles-section" id="bottles">
+        <h2 class="section-title">Conheça a nossa linha de garrafas WB Kids</h2>
+        
+        <div class="carousel">
+            <div class="bottle-card">
+                <img src="garrafa_aberta_mariaejp.jpeg" alt="Garrafa Thermo Aventureiros Mirins com ilustração de Maria e JP">
+                <div class="bottle-badge">NOVA!</div>
+                <h3>Thermo Aventureiros Mirins</h3>
+                <p>Com os personagens favoritos **Maria e JP**, leve e resistente para acompanhar todas as brincadeiras e esportes.</p>
+                <div class="bottle-price">R$ 59,90</div>
+                <button class="cta-button" style="width: 100%;">Eu Quero!</button>
+            </div>
+            <div class="bottle-card">
+                <img src="garrafa_aberta_luccas.jpeg" alt="Garrafa Thermo Luquinhas com ilustração de Luccas Neto">
+                <div class="bottle-badge">ESPECIAL!</div>
+                <h3>Thermo Luquinhas</h3>
+                <p>Com o **Luccas Neto** e efeito de mudança de cor quando gelada - pura magia para os Focas!</p>
+                <div class="bottle-price">R$ 64,90</div>
+                <button class="cta-button" style="width: 100%;">Eu Quero!</button>
+            </div>
+            </div>
+        
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Design Divertido</h3>
+                <p>Personagens e cores que as crianças adoram, criados por designers especializados.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Materiais Seguros</h3>
+                <p>Livre de BPA, ftalatos e outros componentes nocivos à saúde das crianças.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-star"></i>
+                <h3>Exclusividade</h3>
+                <p>Personagens licenciados e colecionáveis que só a Smartmita tem, como **Maria e JP** e **Luccas Neto**.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-gift"></i>
+                <h3>Brindes Especiais</h3>
+                <p>Adesivos, squeezes e surpresas em cada compra para colecionar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="games-section" id="games">
+        <h2 class="section-title">Divirta-se com a Smartmita!</h2>
+        
+        <div class="games-container">
+            <div class="game-card" onclick="startQuiz()">
+                <i class="fas fa-question-circle"></i>
+                <h3>Quiz</h3>
+                <p>Qual garrafa Smartmita combina com você? Responda o quiz e descubra qual personagem te representa!</p>
+                <button class="cta-button" style="background: white; color: var(--primary); margin-top: 15px;">Jogar Agora</button>
+            </div>
+            <div class="game-card" onclick="startMiniGame()">
+                <i class="fas fa-gamepad"></i>
+                <h3>Mini-Jogo</h3>
+                <p>Pegue as gotas d'água com sua garrafa e marque o máximo de pontos! Ajude o Mitinho a se hidratar!</p>
+                <button class="cta-button" style="background: white; color: var(--primary); margin-top: 15px;">Jogar Agora</button>
+            </div>
+            <div class="game-card" onclick="startDesigner()">
+                <i class="fas fa-palette"></i>
+                <h3>Designer</h3>
+                <p>Crie sua própria garrafa virtual e compartilhe com os amigos! Que tal uma garrafa inspirada na **Maria** ou no **Luccas Neto**?</p>
+                <button class="cta-button" style="background: white; color: var(--primary); margin-top: 15px;">Criar Agora</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="promo-section" id="promo">
+        <div class="promo-container">
+            <h2>Promoção Especial de Dia das Crianças!</h2>
+            <p>Compre 2 garrafas e ganhe um squeeze exclusivo! Colecione todos os personagens, incluindo os do **Luccas Neto** e da **Maria e JP**!</p>
+            <p style="font-weight: bold; color: var(--primary); font-size: 1.2rem;">Oferta válida até 12/10 ou enquanto durarem os estoques!</p>
+            
+            <form id="promo-form">
+                <div class="form-group">
+                    <label for="name">Seu Nome</label>
+                    <input type="text" id="name" placeholder="Como gosta de ser chamado?" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu E-mail</label>
+                    <input type="email" id="email" placeholder="melhor@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="age">Idade da Criança</label>
+                    <input type="number" id="age" placeholder="Quantos anos ela tem?" min="0" max="12">
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-gift" style="margin-right: 10px;"></i> Quero Minha Promoção!
+                </button>
+            </form>
+            
+            <p style="font-size: 0.8rem; margin-top: 20px;">* Promoção válida apenas para compras online até dia 12/10/2023.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Smartmita</h3>
+                <p>Garrafas divertidas e seguras para crianças de todas as idades. Feitas com amor e qualidade para o seu pequeno.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook Smartmita"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram Smartmita"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok Smartmita"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube Smartmita"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Links Rápidos</h3>
+                <ul>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Produtos</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Onde Comprar</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Trocas e Devoluções</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Perguntas Frequentes</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Termos de Uso</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contato</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> (11) 1234-5678</li>
+                    <li><i class="fas fa-envelope"></i> contato@smartmita.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Rua das Crianças Felizes, 123 - São Paulo/SP</li>
+                    <li><i class="fas fa-clock"></i> Seg-Sex: 9h às 18h</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 Smartmita. Todos os direitos reservados. | Desenvolvido com ❤️ para crianças felizes
+        </div>
+    </footer>
+
+    <div class="mascot" id="mascot" aria-label="Mascote Mitinho, clique para uma dica"></div>
+
+    <div class="modal" id="quizModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('quizModal')">&times;</span>
+            <div class="quiz-container" id="quizContainer">
+                <h2>Qual garrafa Smartmita combina com você?</h2>
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="quizProgress"></div>
+                </div>
+                <div class="quiz-question" id="quizQuestion"></div>
+                <div class="quiz-options" id="quizOptions"></div>
+                <button class="cta-button" id="nextQuestion" style="display: none;">Próxima Pergunta</button>
+            </div>
+            <div id="quizResult" style="display: none; text-align: center;">
+                <h2>Seu resultado!</h2>
+                <div id="resultBottle" style="margin: 20px 0;"></div>
+                <p id="resultDescription" style="margin-bottom: 20px;"></p>
+                <button class="cta-button" onclick="restartQuiz()">Fazer Novamente</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="gameModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('gameModal')">&times;</span>
+            <h2>Pegue as Gotas d'Água!</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Use as setas do teclado para mover a garrafa e pegar as gotas. Cada gota vale 10 pontos!</p>
+            
+            <div class="game-canvas-container">
+                <canvas id="gameCanvas"></canvas>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <p style="font-size: 1.2rem; font-weight: bold;">Pontuação: <span id="score">0</span></p>
+                <div class="game-controls">
+                    <button class="cta-button" id="startGame">Começar Jogo</button>
+                    <button class="cta-button" style="background: #666;" id="resetGame">Reiniciar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="designerModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('designerModal')">&times;</span>
+            <h2>Designer de Garrafa Smartmita</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Crie sua própria garrafa personalizada e compartilhe com os amigos!</p>
+            
+            <div class="designer-container">
+                <div class="designer-preview">
+                    <div class="designer-bottle" id="designedBottle">
+                        <div class="designer-sticker" id="bottleSticker"></div>
+                    </div>
+                </div>
+                
+                <div class="designer-controls">
+                    <div class="designer-control-group">
+                        <label>Cor da Garrafa</label>
+                        <div class="color-picker" id="bottleColorPicker">
+                            <div class="color-option selected" style="background: #4ECDC4;" onclick="changeBottleColor('#4ECDC4', this)"></div>
+                            <div class="color-option" style="background: #FF6B6B;" onclick="changeBottleColor('#FF6B6B', this)"></div>
+                            <div class="color-option" style="background: #FFE66D;" onclick="changeBottleColor('#FFE66D', this)"></div>
+                            <div class="color-option" style="background: #A5D8FF;" onclick="changeBottleColor('#A5D8FF', this)"></div>
+                            <div class="color-option" style="background: #C8B6FF;" onclick="changeBottleColor('#C8B6FF', this)"></div>
+                            <div class="color-option" style="background: #FFD6A5;" onclick="changeBottleColor('#FFD6A5', this)"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="designer-control-group">
+                        <label>Estilo do Adesivo</label>
+                        <select id="stickerStyle" class="form-group input" onchange="changeStickerStyle()">
+                            <option value="circle">Círculo</option>
+                            <option value="star">Estrela</option>
+                            <option value="heart">Coração</option>
+                            <option value="square">Quadrado</option>
+                            <option value="maria_jp">Maria e JP</option>
+                            <option value="luccas_neto">Luccas Neto</option>
+                        </select>
+                    </div>
+                    
+                    <div class="designer-control-group">
+                        <label>Cor do Adesivo</label>
+                        <div class="color-picker" id="stickerColorPicker">
+                            <div class="color-option selected" style="background: #FF6B6B;" onclick="changeStickerColor('#FF6B6B', this)"></div>
+                            <div class="color-option" style="background: #4ECDC4;" onclick="changeStickerColor('#4ECDC4', this)"></div>
+                            <div class="color-option" style="background: #FFE66D;" onclick="changeStickerColor('#FFE66D', this)"></div>
+                            <div class="color-option" style="background: #FFFFFF;" onclick="changeStickerColor('#FFFFFF', this)"></div>
+                            <div class="color-option" style="background: #292F36;" onclick="changeStickerColor('#292F36', this)"></div>
+                            <div class="color-option" style="background: #C8B6FF;" onclick="changeStickerColor('#C8B6FF', this)"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="designer-control-group">
+                        <label>Tamanho do Adesivo</label>
+                        <input type="range" id="stickerSize" min="20" max="60" value="40" oninput="changeStickerSize()">
+                    </div>
+                </div>
+                
+                <button class="cta-button" onclick="shareDesign()" style="margin-top: 20px;">
+                    <i class="fas fa-share-alt" style="margin-right: 10px;"></i> Compartilhar Design
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="winModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('winModal')">&times;</span>
+            <h2>Ganhe uma Garrafa Smartmita!</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Participe do nosso sorteio e ganhe uma garrafa exclusiva para o Dia das Crianças!</p>
+            
+            <form id="win-form">
+                <div class="form-group">
+                    <label for="win-name">Nome da Criança</label>
+                    <input type="text" id="win-name" placeholder="Nome do seu pequeno" required>
+                </div>
+                <div class="form-group">
+                    <label for="win-parent">Seu Nome</label>
+                    <input type="text" id="win-parent" placeholder="Nome do responsável" required>
+                </div>
+                <div class="form-group">
+                    <label for="win-email">Seu E-mail</label>
+                    <input type="email" id="win-email" placeholder="melhor@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="win-phone">Telefone</label>
+                    <input type="tel" id="win-phone" placeholder="(11) 98765-4321" required>
+                </div>
+                <div class="form-group">
+                    <label for="win-age">Idade da Criança</label>
+                    <input type="number" id="win-age" min="0" max="12" placeholder="Quantos anos ela tem?" required>
+                </div>
+                <div class="form-group">
+                    <label for="win-bottle">Modelo Preferido</label>
+                    <select id="win-bottle" class="form-group input" required>
+                        <option value="">Selecione um modelo</option>
+                        <option value="Thermo Aventureiros Mirins">Thermo Aventureiros Mirins (Maria e JP)</option>
+                        <option value="Thermo Luquinhas">Thermo Luquinhas (Luccas Neto)</option>
+                        <option value="Outro Modelo Divertido">Outro Modelo Divertido</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> Participar do Sorteio
+                </button>
+            </form>
+            
+            <p style="font-size: 0.8rem; margin-top: 20px; text-align: center;">
+                * Sorteio válido apenas para residentes no Brasil. O resultado será anunciado no dia 12/10/2023.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Contador regressivo
+        function updateCountdown() {
+            const now = new Date();
+            // Data do Dia das Crianças 2025
+            const targetDate = new Date("October 12, 2025 00:00:00"); 
+            const diff = targetDate - now;
+            
+            if (diff <= 0) {
+                document.getElementById("days").textContent = "00";
+                document.getElementById("hours").textContent = "00";
+                document.getElementById("minutes").textContent = "00";
+                document.getElementById("seconds").textContent = "00";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").textContent = days.toString().padStart(2, "0");
+            document.getElementById("hours").textContent = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, "0");
+        }
+        
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Scroll header
+        window.addEventListener("scroll", function() {
+            const header = document.getElementById("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+        
+        // Menu mobile
+        const hamburger = document.getElementById("hamburger");
+        const nav = document.getElementById("nav");
+        
+        hamburger.addEventListener("click", function() {
+            nav.classList.toggle("active");
+            this.textContent = nav.classList.contains("active") ? "✕" : "☰";
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll("#nav a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("active");
+                hamburger.textContent = "☰";
+            });
+        });
+        
+        // Mascote
+        const mascot = document.getElementById("mascot");
+        const mascotMessages = [
+            "Olá! Eu sou o Mitinho, mascote da Smartmita! Prontos para se divertir?",
+            "Não esqueça de se hidratar brincando! Uma garrafa Smartmita te ajuda nessa missão!",
+            "Colecione todas as garrafas Smartmita! Já viu a do Luccas Neto e da Maria e JP?",
+            "Que tal personalizar sua própria garrafa? Deixe sua imaginação voar!",
+            "Participe do nosso sorteio e ganhe uma garrafa! A sorte pode ser sua!",
+            "A água fica mais gostosa na Smartmita! Peça a sua aos seus pais!"
+        ];
+        
+        function speakMascot() {
+            const randomMessage = mascotMessages[Math.floor(Math.random() * mascotMessages.length)];
+            
+            mascot.classList.add("talking");
+            setTimeout(() => {
+                mascot.classList.remove("talking");
+            }, 2000);
+            
+            alert(randomMessage);
+        }
+        
+        mascot.addEventListener("click", speakMascot);
+        
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+        
+        // Fechar modal ao clicar fora
+        window.addEventListener("click", function(event) {
+            if (event.target.classList.contains("modal")) {
+                event.target.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+        
+        // Quiz
+        const quizQuestions = [
+            {
+                question: "Qual tipo de aventura você mais ama?",
+                options: [
+                    "Explorar lugares misteriosos com mapas e bússolas (Maria e JP)",
+                    "Criar vídeos engraçados e desafios radicais (Luccas Neto)",
+                    "Jogar esportes e correr ao ar livre",
+                    "Inventar histórias e desenhar mundos mágicos"
+                ],
+                answers: ["maria_jp", "luccas_neto", "atleta", "criativo"]
+            },
+            {
+                question: "Qual frase te representa melhor?",
+                options: [
+                    "\"A gente não tem limite pra sonhar!\"",
+                    "\"Foca na Força, Foca na Aventura!\"",
+                    "\"Sou pura energia, sempre em movimento!\"",
+                    "\"Minha imaginação me leva a lugares incríveis!\""
+                ],
+                answers: ["maria_jp", "luccas_neto", "atleta", "criativo"]
+            },
+            {
+                question: "Qual mascote seria seu melhor amigo?",
+                options: [
+                    "Um bichinho da floresta que adora explorar",
+                    "Um boneco divertido que faz caretas e dancinhas",
+                    "Um pet super esportivo que corre e pula com você",
+                    "Um bichinho de pelúcia fofinho que inspira novas ideias"
+                ],
+                answers: ["maria_jp", "luccas_neto", "atleta", "criativo"]
+            }
+        ];
+        
+        const quizResults = {
+            "maria_jp": {
+                title: "Thermo Aventureiros Mirins (Maria e JP)",
+                description: "Você é um(a) verdadeiro(a) explorador(a)! A garrafa Thermo Aventureiros Mirins, com a **Maria e o JP**, é perfeita para acompanhar suas descobertas e te manter hidratado(a) em todas as missões!",
+                image: "garrafa_aberta_mariaejp.jpeg" 
+            },
+            "luccas_neto": {
+                title: "Thermo Luquinhas (Luccas Neto)",
+                description: "Sua energia e criatividade são contagiantes, assim como as do **Luccas Neto**! A garrafa Thermo Luquinhas é a sua cara, com a magia de mudar de cor e te acompanhar em todas as suas loucuras!",
+                image: "garrafa_aberta_luccas.jpeg" 
+            },
+            "atleta": {
+                title: "Thermo Super Atleta",
+                description: "Energia é o que não falta pra você! A garrafa Thermo Super Atleta vai manter você hidratado(a) em todas as suas atividades esportivas e brincadeiras cheias de movimento!",
+                image: "https://via.placeholder.com/200x200?text=Super+Atleta"
+            },
+            "criativo": {
+                title: "Thermo Mundo Mágico",
+                description: "Sua imaginação não tem limites! A garrafa Thermo Mundo Mágico, com seu design encantado, é perfeita para te inspirar a criar novas histórias e mundos incríveis!",
+                image: "https://via.placeholder.com/200x200?text=Mundo+Mágico"
+            }
+        };
+        
+        let currentQuestion = 0;
+        let userAnswers = [];
+        
+        function startQuiz() {
+            openModal("quizModal");
+            currentQuestion = 0;
+            userAnswers = [];
+            document.getElementById("quizContainer").style.display = "block";
+            document.getElementById("quizResult").style.display = "none";
+            showQuestion();
+        }
+        
+        function showQuestion() {
+            const question = quizQuestions[currentQuestion];
+            document.getElementById("quizQuestion").textContent = question.question;
+            
+            const optionsContainer = document.getElementById("quizOptions");
+            optionsContainer.innerHTML = "";
+            
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement("div");
+                optionElement.className = "quiz-option";
+                optionElement.textContent = option;
+                optionElement.addEventListener("click", () => selectAnswer(index));
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            document.getElementById("nextQuestion").style.display = "none";
+            document.getElementById("quizProgress").style.width = `${((currentQuestion + 1) / quizQuestions.length) * 100}%`;
+        }
+        
+        function selectAnswer(answerIndex) {
+            const options = document.querySelectorAll(".quiz-option");
+            options.forEach(option => option.classList.remove("selected"));
+            options[answerIndex].classList.add("selected");
+            
+            // Armazena a categoria da resposta, não apenas o índice
+            userAnswers[currentQuestion] = quizQuestions[currentQuestion].answers[answerIndex];
+            document.getElementById("nextQuestion").style.display = "block";
+        }
+        
+        document.getElementById("nextQuestion").addEventListener("click", nextQuestion);
+        
+        function nextQuestion() {
+            currentQuestion++;
+            
+            if (currentQuestion < quizQuestions.length) {
+                showQuestion();
+            } else {
+                showResult();
+            }
+        }
+        
+        function showResult() {
+            // Conta a frequência de cada categoria de resposta
+            const categoryCounts = {};
+            userAnswers.forEach(answer => {
+                categoryCounts[answer] = (categoryCounts[answer] || 0) + 1;
+            });
+            
+            // Encontra a categoria mais frequente
+            let mostFrequentCategory = null;
+            let maxCount = 0;
+            for (const category in categoryCounts) {
+                if (categoryCounts[category] > maxCount) {
+                    maxCount = categoryCounts[category];
+                    mostFrequentCategory = category;
+                }
+            }
+            
+            // Se houver empate, prioriza Maria/JP, Luccas Neto, depois os genéricos
+            if (mostFrequentCategory === null) { // Caso não haja respostas ou empate completo em zero
+                 mostFrequentCategory = "atleta"; // Default
+            } else if (categoryCounts["maria_jp"] === maxCount && categoryCounts["luccas_neto"] === maxCount) {
+                mostFrequentCategory = "maria_jp"; // Prioriza Maria e JP em caso de empate triplo
+            } else if (categoryCounts["luccas_neto"] === maxCount && mostFrequentCategory !== "maria_jp") {
+                mostFrequentCategory = "luccas_neto"; // Prioriza Luccas Neto se não for Maria/JP
+            }
+            
+            const result = quizResults[mostFrequentCategory];
+            
+            document.getElementById("quizContainer").style.display = "none";
+            document.getElementById("quizResult").style.display = "block";
+            
+            document.getElementById("resultBottle").innerHTML = `
+                <img src="${result.image}" alt="${result.title}" style="max-width: 200px; border-radius: 10px;">
+                <h3 style="margin: 10px 0; color: var(--primary);">${result.title}</h3>
+            `;
+            
+            document.getElementById("resultDescription").textContent = result.description;
+        }
+        
+        function restartQuiz() {
+            document.getElementById("quizContainer").style.display = "block";
+            document.getElementById("quizResult").style.display = "none";
+            startQuiz();
+        }
+        
+        // Mini-Jogo
+        let gameInterval;
+        let score = 0;
+        let gameRunning = false;
+        
+        function startMiniGame() {
+            openModal("gameModal");
+            score = 0;
+            document.getElementById("score").textContent = "0";
+            
+            const canvas = document.getElementById("gameCanvas");
+            const ctx = canvas.getContext("2d");
+            
+            // Ajustar tamanho do canvas
+            canvas.width = canvas.parentElement.offsetWidth;
+            canvas.height = canvas.parentElement.offsetHeight;
+            
+            const bottleWidth = 60;
+            const bottleHeight = 80;
+            let bottleX = (canvas.width - bottleWidth) / 2;
+            
+            const dropRadius = 10;
+            const drops = [];
+            let dropSpeed = 3;
+            
+            // Desenhar garrafa
+            function drawBottle() {
+                ctx.fillStyle = "#4ECDC4"; // Cor da garrafa no jogo
+                ctx.beginPath();
+                ctx.roundRect(bottleX, canvas.height - bottleHeight - 20, bottleWidth, bottleHeight, [10, 10, 0, 0]);
+                ctx.fill();
+                
+                // Tampa
+                ctx.fillStyle = "#FF6B6B"; // Cor da tampa
+                ctx.beginPath();
+                ctx.roundRect(bottleX + (bottleWidth/2) - 15, canvas.height - bottleHeight - 30, 30, 10, [5, 5, 0, 0]);
+                ctx.fill();
+            }
+            
+            // Criar gotas
+            function createDrop() {
+                const x = Math.random() * (canvas.width - dropRadius * 2) + dropRadius;
+                drops.push({ x, y: 0 });
+            }
+            
+            // Desenhar gotas
+            function drawDrops() {
+                ctx.fillStyle = "#A5D8FF"; // Cor da gota
+                drops.forEach(drop => {
+                    ctx.beginPath();
+                    ctx.arc(drop.x, drop.y, dropRadius, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+            }
+            
+            // Atualizar jogo
+            function update() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Mover gotas
+                drops.forEach((drop, index) => {
+                    drop.y += dropSpeed;
+                    
+                    // Verificar colisão com garrafa
+                    if (drop.y + dropRadius >= canvas.height - bottleHeight - 20 && 
+                        drop.x >= bottleX && drop.x <= bottleX + bottleWidth) {
+                        drops.splice(index, 1);
+                        score += 10;
+                        document.getElementById("score").textContent = score;
+                        playSound('collect'); // Adiciona som ao coletar
+                        
+                        // Aumentar dificuldade
+                        if (score % 50 === 0) {
+                            dropSpeed += 0.5;
+                        }
+                    }
+                    
+                    // Remover gotas que saíram da tela
+                    if (drop.y > canvas.height) {
+                        drops.splice(index, 1);
+                    }
+                });
+                
+                // Criar novas gotas
+                if (Math.random() < 0.03) {
+                    createDrop();
+                }
+                
+                drawBottle();
+                drawDrops();
+            }
+            
+            // Controles
+            document.addEventListener("keydown", function(e) {
+                if (!gameRunning) return;
+                
+                if (e.key === "ArrowLeft" && bottleX > 0) {
+                    bottleX -= 15;
+                } else if (e.key === "ArrowRight" && bottleX < canvas.width - bottleWidth) {
+                    bottleX += 15;
+                }
+            });
+            
+            // Botões de controle
+            document.getElementById("startGame").addEventListener("click", function() {
+                if (!gameRunning) {
+                    gameRunning = true;
+                    gameInterval = setInterval(update, 20);
+                    this.textContent = "Jogo Rodando!";
+                    this.disabled = true;
+                    playSound('start_game'); // Adiciona som ao iniciar o jogo
+                }
+            });
+            
+            document.getElementById("resetGame").addEventListener("click", function() {
+                clearInterval(gameInterval);
+                gameRunning = false;
+                drops.length = 0;
+                score = 0;
+                document.getElementById("score").textContent = "0";
+                document.getElementById("startGame").textContent = "Começar Jogo";
+                document.getElementById("startGame").disabled = false;
+                dropSpeed = 3;
+                bottleX = (canvas.width - bottleWidth) / 2;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                drawBottle();
+                playSound('reset_game'); // Adiciona som ao reiniciar o jogo
+            });
+            
+            // Desenhar inicial
+            drawBottle();
+        }
+        
+        // Designer de Garrafa
+        function startDesigner() {
+            openModal("designerModal");
+            // Garante que a garrafa e o adesivo inicializem com cores padrão
+            changeBottleColor('#4ECDC4', document.querySelector('#bottleColorPicker .color-option[style*="#4ECDC4"]'));
+            changeStickerColor('#FF6B6B', document.querySelector('#stickerColorPicker .color-option[style*="#FF6B6B"]'));
+            changeStickerStyle(); // Aplica o estilo inicial (círculo)
+            changeStickerSize(); // Aplica o tamanho inicial
+        }
+        
+        function changeBottleColor(color, element) {
+            document.getElementById("designedBottle").style.backgroundColor = color;
+            document.getElementById("designedBottle").style.setProperty('--bottle-color', color); // Para pseudo-elementos
+            
+            document.querySelectorAll("#bottleColorPicker .color-option").forEach(option => {
+                option.classList.remove("selected");
+            });
+            if (element) {
+                element.classList.add("selected");
+            }
+        }
+        
+        function changeStickerColor(color, element) {
+            document.getElementById("bottleSticker").style.backgroundColor = color;
+            document.getElementById("bottleSticker").style.setProperty('--sticker-color', color);
+            
+            document.querySelectorAll("#stickerColorPicker .color-option").forEach(option => {
+                option.classList.remove("selected");
+            });
+            if (element) {
+                element.classList.add("selected");
+            }
+        }
+        
+        function changeStickerSize() {
+            const size = document.getElementById("stickerSize").value;
+            const sticker = document.getElementById("bottleSticker");
+            sticker.style.width = `${size}px`;
+            sticker.style.height = `${size}px`;
+        }
+        
+        function changeStickerStyle() {
+            const style = document.getElementById("stickerStyle").value;
+            const sticker = document.getElementById("bottleSticker");
+            
+            // Resetar estilos
+            sticker.style.clipPath = "none";
+            sticker.style.borderRadius = "0";
+            sticker.innerHTML = ""; // Limpar conteúdo do adesivo
+            sticker.style.backgroundImage = "none";
+            sticker.style.backgroundSize = "contain";
+            sticker.style.backgroundRepeat = "no-repeat";
+            sticker.style.backgroundPosition = "center";
+            sticker.style.color = "white"; // Resetar cor do texto para ícones
+
+            if (style === "circle") {
+                sticker.style.borderRadius = "50%";
+            } else if (style === "star") {
+                sticker.style.clipPath = "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)";
+            } else if (style === "heart") {
+                sticker.style.clipPath = "path('M10,30 A20,20,0,0,1,50,30 A20,20,0,0,1,90,30 Q90,60,50,90 Q10,60,10,30 Z')";
+            } else if (style === "square") {
+                sticker.style.borderRadius = "10%"; // Um pouco arredondado
+            } else if (style === "maria_jp") {
+                sticker.style.backgroundImage = 'url("icone_mariaejp.webp")'; // Use um ícone ou imagem
+                sticker.style.borderRadius = "50%"; // Forma do adesivo para a imagem
+                sticker.style.backgroundColor = "transparent"; // Fundo transparente para a imagem
+            } else if (style === "luccas_neto") {
+                sticker.style.backgroundImage = 'url("icone_luccasneto.webp")'; // Use um ícone ou imagem
+                sticker.style.borderRadius = "50%"; // Forma do adesivo para a imagem
+                sticker.style.backgroundColor = "transparent"; // Fundo transparente para a imagem
+            }
+        }
+        
+        function shareDesign() {
+            alert("Design compartilhado com sucesso! Em uma implementação real, isso enviaria o design para redes sociais ou por e-mail.");
+        }
+        
+        // Formulários
+        document.getElementById("promo-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Obrigado por se cadastrar! Em breve enviaremos as promoções especiais para seu e-mail.");
+            this.reset();
+        });
+        
+        document.getElementById("win-button").addEventListener("click", function(e) {
+            e.preventDefault();
+            openModal("winModal");
+        });
+        
+        document.getElementById("win-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Obrigado por participar do nosso sorteio! Boa sorte! O resultado será divulgado no dia 12/10.");
+            this.reset();
+            closeModal("winModal");
+        });
+        
+        // Efeitos sonoros (simulados)
+        function playSound(type) {
+            console.log(`Tocando som: ${type}`);
+            // Em uma implementação real, usaria o Web Audio API ou Audio()
+            // Exemplo:
+            // const audio = new Audio(`sounds/${type}.mp3`);
+            // audio.play();
+        }
+        
+        // Inicializar designer ao carregar a página
+        window.addEventListener("DOMContentLoaded", () => {
+            // Inicializa o designer com cores e estilos padrão, garantindo que os seletores de cor reflitam isso
+            changeBottleColor('#4ECDC4', document.querySelector('#bottleColorPicker .color-option[style*="#4ECDC4"]'));
+            changeStickerColor('#FF6B6B', document.querySelector('#stickerColorPicker .color-option[style*="#FF6B6B"]'));
+            changeStickerStyle(); // Para garantir que o estilo inicial 'circle' seja aplicado
+            changeStickerSize(); // Para garantir que o tamanho inicial seja aplicado
+        });
+    </script>
+</body>
+</html>
